@@ -407,11 +407,11 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-        <FormField label="Marca" name="brand" value={formData.brand} onChange={handleChange} required />
-        <FormField label="Modelo" name="model" value={formData.model} onChange={handleChange} required />
+        <FormField label="Marca" name="brand" value={formData.brand} onChange={handleChange} />
+        <FormField label="Modelo" name="model" value={formData.model} onChange={handleChange} />
         <div>
             <label htmlFor="category" className="block text-sm font-medium text-dark-secondary mb-1">Categoria</label>
-            <select name="category" id="category" value={formData.category} onChange={handleChange} className="w-full px-3 py-2 bg-dark-background border border-dark-border rounded-md focus:ring-dark-primary focus:border-dark-primary" required>
+            <select name="category" id="category" value={formData.category} onChange={handleChange} className="w-full px-3 py-2 bg-dark-background border border-dark-border rounded-md focus:ring-dark-primary focus:border-dark-primary">
                 <option value="" disabled>Selecione...</option>
                 <option value="Hatch">Hatch</option>
                 <option value="Sedan">Sedan</option>
@@ -421,8 +421,8 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
                 <option value="Van">Van</option>
             </select>
         </div>
-        <FormField label="Cor" name="color" value={formData.color} onChange={handleChange} required />
-        <FormField label="Placa" name="plate" value={formData.plate} onChange={handleChange} required />
+        <FormField label="Cor" name="color" value={formData.color} onChange={handleChange} />
+        <FormField label="Placa" name="plate" value={formData.plate} onChange={handleChange} />
         <div>
           <label htmlFor="purchasePrice" className="block text-sm font-medium text-dark-secondary mb-1">Preço de Compra (R$)</label>
           <input
@@ -434,7 +434,6 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
             onBlur={() => handleCurrencyInputBlur(setPurchasePriceInput, formData.purchasePrice)}
             onFocus={() => handleCurrencyInputFocus(setPurchasePriceInput, formData.purchasePrice)}
             className="w-full px-3 py-2 bg-dark-background border border-dark-border rounded-md focus:ring-dark-primary focus:border-dark-primary"
-            required
             placeholder="R$ 0,00"
           />
         </div>
@@ -449,7 +448,6 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
             onBlur={() => handleCurrencyInputBlur(setPriceInput, formData.announcedPrice)}
             onFocus={() => handleCurrencyInputFocus(setPriceInput, formData.announcedPrice)}
             className="w-full px-3 py-2 bg-dark-background border border-dark-border rounded-md focus:ring-dark-primary focus:border-dark-primary"
-            required
             placeholder="R$ 0,00"
           />
         </div>
@@ -473,7 +471,6 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
                     onBlur={() => handleCurrencyInputBlur(setDailyCostInput, formData.dailyCost)}
                     onFocus={() => handleCurrencyInputFocus(setDailyCostInput, formData.dailyCost)}
                     className="w-full px-3 py-2 bg-dark-background border border-dark-border rounded-md"
-                    required
                     placeholder="R$ 0,00"
                 />
                 <button type="button" onClick={() => setCalculatorOpen(prev => !prev)} className="p-2.5 rounded-md bg-dark-border/50 hover:bg-dark-border transition-colors flex-shrink-0">
@@ -492,8 +489,8 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
             placeholder="R$ 0,00"
           />
         </div>
-        <FormField label="Meta de Venda (dias)" name="saleGoalDays" type="number" value={formData.saleGoalDays} onChange={handleChange} required />
-        <FormField label="Data de Entrada" name="entryDate" type="date" value={formData.entryDate} onChange={handleChange} required />
+        <FormField label="Meta de Venda (dias)" name="saleGoalDays" type="number" value={formData.saleGoalDays} onChange={handleChange} />
+        <FormField label="Data de Entrada" name="entryDate" type="date" value={formData.entryDate} onChange={handleChange} />
         <div>
           <label htmlFor="ipvaCost" className="block text-sm font-medium text-dark-secondary mb-1">Custo do IPVA (R$)</label>
           <input
@@ -519,7 +516,7 @@ const VehicleForm: React.FC<VehicleFormProps> = ({ initialData, onClose, company
                  </div>
                  <div>
                     <label htmlFor="estoqueMedio" className="block text-sm font-medium text-dark-secondary mb-1">Estoque Médio (unidades)</label>
-                    <input id="estoqueMedio" name="estoqueMedio" value={calcInputs.estoqueMedio} onChange={handleCalcChange} type="number" min="1" required className={`w-full px-3 py-2 bg-dark-card border rounded-md ${estoqueMedioError ? 'border-red-500' : 'border-dark-border'}`}/>
+                    <input id="estoqueMedio" name="estoqueMedio" value={calcInputs.estoqueMedio} onChange={handleCalcChange} type="number" min="1" className={`w-full px-3 py-2 bg-dark-card border rounded-md ${estoqueMedioError ? 'border-red-500' : 'border-dark-border'}`}/>
                     {estoqueMedioError && <p className="text-xs text-red-400 mt-1">{estoqueMedioError}</p>}
                  </div>
                  <div>
